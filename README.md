@@ -1,6 +1,6 @@
 # Docker-vuejs-Project
 
-**Running the Setup**
+**Steps**
 1. Ensure Docker and Docker Compose are installed on your EC2 instance.
 2. clone the git repo to your root directory. run the following command to build and start the containers:
        cd docker-vuejs-project/project-directory/
