@@ -1,0 +1,35 @@
+version: '3'
+services:
+  app:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    container_name: vuejs-app
+    volumes:
+      - app-data:/usr/share/nginx/html
+    networks:
+      - app-network
+    expose:
+      - 80
+
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    container_name: nginx-server
+    volumes:
+      - nginx-data:/etc/nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - app
+    networks:
+      - app-network
+
+volumes:
+  app-data:
+  nginx-data:
+
+networks:
+  app-network:
+    driver: bridge
